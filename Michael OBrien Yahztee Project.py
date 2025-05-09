@@ -435,7 +435,7 @@ for i in range(13): #There are 13 rounds in yahtzee
             else:
                 c = int(input('{} is not a valid option. Choose again: '.format(c)))
         ThisRound,categ_name = place(j,c)
-	comb=points[n]+points[n+1]+points[n+2]+points[n+3]+points[n+4]+points[n+5]
+        comb=points[n]+points[n+1]+points[n+2]+points[n+3]+points[n+4]+points[n+5]
         if comb>=63:
             bonus[j]=35
         score[j]=combine(j)
