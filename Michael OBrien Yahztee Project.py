@@ -7,52 +7,28 @@ def inst(): # Gives instructions when called upon
     n=input('\nPress ENTER to return to game or M to go back to the menu: ')
     if n=='M' or n=='m':
         menu()
-        
-def alldice():  # Rolls 5 dice at random
-    r=random.randint(1,6)
-    return r
-    
-def dice1():
-    r=random.randint(1,6)
-    dice[0]=r
-    
-def dice2():
-    r=random.randint(1,6)
-    dice[1]=r
-    
-def dice3():
-    r=random.randint(1,6)
-    dice[2]=r
-    
-def dice4():
-    r=random.randint(1,6)
-    dice[3]=r
-    
-def dice5():
-    r=random.randint(1,6)
-    dice[4]=r
-    
-def roll():
+
+def roll():  # Rolls 5 dice at random
     for i in range(6):
-        dice.append(alldice())
+        dice.append(random.randint(1,6))
     print('Here is your first roll {}:'.format(names[j]),'\n',dice[0],dice[1],dice[2],dice[3],dice[4])
 
 def reroll():   # Rerolls selected dice
     ro.append(input("Would you like to reroll dice 1?({})Enter y/n: ".format(dice[0])))
     if ro[0]=='y':
-        dice1()
+        dice[0]=random.randint(1,6)
     ro.append(input("Would you like to reroll dice 2?({})Enter y/n: ".format(dice[1])))
     if ro[1]=='y':
-        dice2()
+        dice[1]=random.randint(1,6)
     ro.append(input("Would you like to reroll dice 3?({})Enter y/n: ".format(dice[2])))
     if ro[2]=='y':
-        dice3()
+        dice[2]=random.randint(1,6)
     ro.append(input("Would you like to reroll dice 4?({})Enter y/n: ".format(dice[3])))
     if ro[3]=='y':
-        dice4()
+        dice[3]=random.randint(1,6)
     ro.append(input("Would you like to reroll dice 5?({})Enter y/n: ".format(dice[4])))
     if ro[4]=='y':
-        dice5()
+        dice[4]=random.randint(1,6)
 
 def org():  # Places player in rank order from highest points to least
     for j in range(players-1):
@@ -377,7 +353,8 @@ def place(j,c):
                     break
     return k, categ_name
 
-#Start of the game is below
+############ Start of the game is below ############
+
 print('Welcome to Yahtzee')
 players=int(input('How many players will be playing?: '))
 names=[]
@@ -399,7 +376,6 @@ for j in range(players):
 n=input('To access Menu and more, type "M". To begin the game press ENTER: ')
 if n=="M" or n=='m':
     menu()
-
 
 for i in range(13): #There are 13 rounds in yahtzee
     for j in range(players): #This will give each player a turn in each round
@@ -469,7 +445,7 @@ for i in range(13): #There are 13 rounds in yahtzee
             menu()
     	
     	
-org()
+org() # Ranking players for final results
 print('\nFinal Results are...')
 check=len(set(score)) #"Tie" function added after assignment was due so "set" function allowed
 if check == players:
@@ -489,4 +465,3 @@ else:
     for i in range(players):
         print(order[i], "- {} points".format(score[i]))
 print('Thanks for playing!')
-#print(score, bonus,points)
