@@ -428,9 +428,6 @@ for i in range(13): #There are 13 rounds in yahtzee
         k1='\nLarge Straight(type "11")-ALl five dice consecutive, scores 40            | - {} points'.format(points[n+10])
         l1='\nYahtzee(type "12")-All Five dice the same number, scores 50               | - {} points'.format(points[n+11])
         m1='\nChance(type "13")-Sum of all dice                                         | - {} points'.format(points[n+12])
-        comb=points[n]+points[n+1]+points[n+2]+points[n+3]+points[n+4]+points[n+5]
-        if comb>=63:
-            bonus[j]=35
         c=int(input('Here are your options:\n\nUpper Section:{}{}{}{}{}{}\n\nCombined Upper Score:{} points\nUpper Section Bonus-35 points:If combined upper score is at least 63 points-{} points\n\nLower Section:{}{}{}{}{}{}{}\nEnter here: '.format(a1,b1,c1,d1,e1,f1,comb,bonus[j],g1,h1,i1,j1,k1,l1,m1)))
         while True:
             if c>0 and c<14:
@@ -438,6 +435,9 @@ for i in range(13): #There are 13 rounds in yahtzee
             else:
                 c = int(input('{} is not a valid option. Choose again: '.format(c)))
         ThisRound,categ_name = place(j,c)
+	comb=points[n]+points[n+1]+points[n+2]+points[n+3]+points[n+4]+points[n+5]
+        if comb>=63:
+            bonus[j]=35
         score[j]=combine(j)
         print('You scored {} points in the {} section'.format(ThisRound,categ_name))
         n=input("Your turn has ended. To access Menu, type 'M', press ENTER to continue: ")
