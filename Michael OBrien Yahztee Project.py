@@ -302,7 +302,7 @@ def chance(x):	#Scores Chance section if able
         points[n]+=k
         return points[n]
         
-def place(j,c):
+def place(j,c):	#Places score in selected section
     while True:
         if c==1:
             k=ace(j)
