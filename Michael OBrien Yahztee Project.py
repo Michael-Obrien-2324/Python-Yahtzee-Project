@@ -290,7 +290,7 @@ def yaht(x):	#Scores Yahtzee section
         else:
             return -1
 
-def chance(x):
+def chance(x):	#Scores Chance section if able
     n=(x*13)+12
     if points[n]!=0:
         p=print('\nSorry you already used your chance space, try a different spot.')
